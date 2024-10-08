@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaStar } from "react-icons/fa";
 import { IoMdStarOutline } from "react-icons/io";
 
@@ -7,6 +9,35 @@ function BestSelling() {
     const [category, setCategory] = useState();
     const [isVisible, setIsVisible] = useState(4); // Fix typo
     const [show, setShow] = useState(false);
+
+      const titleRef = useRef()
+      const cardRef = useRef()
+    useGSAP(()=>{
+        gsap.from(titleRef.current, {
+            y:100,
+            delay:1,
+            duration:2,
+            opacity:0,
+            scrollTrigger:{
+                trigger:titleRef.current,
+                start:"top 120%",
+                end:"top 5%",
+                scrub:1
+            }
+        }),
+        gsap.from(cardRef.current, {
+            y:100,
+            delay:1,
+            duration:2,
+            opacity:0,
+            scrollTrigger:{
+                trigger:cardRef.current,
+                start:"top 120%",
+                end:"top 5%",
+                scrub:1
+            }
+        })
+    })
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,7 +69,7 @@ function BestSelling() {
     return (
         <>
             <div className='py-5 px-5 container mx-auto'>
-                <h1 className='text-5xl font-bold text-center'>Best Selling Product</h1>
+                <h1 ref={titleRef} className='text-5xl font-bold text-center'>Best Selling Product</h1>
                 <div className='flex gap-5 w-2/5 mx-auto items-center justify-between py-3 px-5 rounded-lg mt-10 bg-black/25'>
                     {
                         Array.from(new Set(product.map(item => item.category)))
@@ -48,7 +79,7 @@ function BestSelling() {
                     }
                 </div>
 
-                <div className='grid grid-cols-12 mt-16 gap-5'>
+                <div ref={cardRef} className='grid grid-cols-12 mt-16 gap-5'>
                     {
                         filterData && filterData.slice(0, isVisible).map((item) => (
                             <div key={item.id} className='col-span-3 bg-slate-600 p-5'>
