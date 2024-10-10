@@ -4,14 +4,14 @@ function Footer() {
     return (
         <>
             <div className="mt-20">
-                <div className="container grid grid-cols-12  px-5">
-                    <div className="col-span-4">
+                <div className="md:container grid grid-cols-12  md:px-5 ">
+                    <div className="col-span-12 md:col-span-4 text-center mb-5 md:mb-0 md:text-start ">
                         <h1>MS46</h1>
                         <p>The advantage of hiring a workspace with us is that givees you comfortable service and all-around facilities.</p>
 
                     </div>
-                    <div className="col-span-8 flex gap-5 justify-between">
-                        <div className="px-10">
+                    <div className="col-span-12 px-5 md:col-span-8 flex md:gap-1 justify-between">
+                        <div className="md:px-10">
                             <p className="text-red-500">Service</p>
                             <ul>
                                 <li>Email Marketing</li>
@@ -20,7 +20,7 @@ function Footer() {
                             </ul>
                         </div>
 
-                        <div className="px-10">
+                        <div className="md:px-10">
                             <p className="text-red-500">Service</p>
                             <ul>
                                 <li>Email Marketing</li>
@@ -29,7 +29,7 @@ function Footer() {
                             </ul>
                         </div>
 
-                        <div className="px-10" >
+                        <div className="md:px-10" >
                             <p className="text-red-500">Service</p>
                             <ul>
                                 <li>Email Marketing</li>
@@ -44,12 +44,12 @@ function Footer() {
 
                 </div>
 
-                <div className=" mt-14 h-10 bg-slate-400 ">
-                    <div className="flex px-5 justify-between items-center pt-2">
+                <div className=" mt-14 h-10 bg-slate-400 px-5 ">
+                    <div className="flex md:px-5 justify-between items-center pt-2">
                         <div>
                             <p>Copyright @ 2024</p>
                         </div>
-                        <div className="flex gap-5">
+                        <div className="flex md:gap-5">
                             <p>Terms & Condition</p>
                             <p>Privacy policy</p>
                         </div>

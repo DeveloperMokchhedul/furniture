@@ -69,12 +69,12 @@ function BestSelling() {
     return (
         <>
             <div className='py-5 px-5 container mx-auto'>
-                <h1 ref={titleRef} className='text-5xl font-bold text-center'>Best Selling Product</h1>
-                <div className='flex gap-5 w-2/5 mx-auto items-center justify-between py-3 px-5 rounded-lg mt-10 bg-black/25'>
+                <h1 ref={titleRef} className='text-2xl md:text-5xl font-bold text-center'>Best Selling Product</h1>
+                <div className='flex gap-5 w-full md:w-2/5 mx-auto items-center justify-between py-3 px-5 rounded-lg mt-10 bg-black/25'>
                     {
                         Array.from(new Set(product.map(item => item.category)))
                             .map((category, index) => (
-                                <button onClick={() => handleCategory(category)} className='bg-black text-[12px] text-white px-3 py-1 rounded-md' key={index}>{category}</button>
+                                <button onClick={() => handleCategory(category)} className='bg-black text-[8px] md:text-[12px] text-white px-3 py-1 rounded-md' key={index}>{category}</button>
                             ))
                     }
                 </div>
@@ -82,7 +82,7 @@ function BestSelling() {
                 <div ref={cardRef} className='grid grid-cols-12 mt-16 gap-5'>
                     {
                         filterData && filterData.slice(0, isVisible).map((item) => (
-                            <div key={item.id} className='col-span-3 bg-slate-600 p-5'>
+                            <div key={item.id} className='col-span-12 md:col-span-3 bg-slate-600 p-5'>
                                 <img className='w-[130px] h-[130px]  rounded-full mx-auto' src={item.image} alt="" />
                                 <div className='bg-white p-5 rounded-lg mt-3 text-center'>
                                     <p>{item.category}</p>

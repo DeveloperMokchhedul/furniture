@@ -25,7 +25,7 @@ function WhyChoseUs() {
     return (
         <>
             <div className='container mx-auto py-20 grid grid-cols-12 px-5 gap-5 items-center bg-[#F5F5F5] '>
-                <div className='col-span-3'>
+                <div className='col-span-12 text-center md:col-span-3'>
                     <h1 ref={titleRef} className='text-2xl font-bold'>Why <br /> Chosing Us</h1>
                 </div>
 

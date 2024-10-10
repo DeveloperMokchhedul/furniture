@@ -2,13 +2,12 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { IoBagSharp } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 import { useEffect, useRef, useState } from 'react';
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 function Navbar() {
     const [isMenu, setIsMenu] = useState(false);
     const [isScroll, setIsScroll] = useState(false)
-    const navbar = useRef()
+    const navbar = useRef();
     const navItems = [
         { path: "/", label: "Furniture" },
         { path: "/shop", label: "Shop" },
@@ -22,7 +21,7 @@ function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
-                setIsScroll(true);  // Fixed window.scrollY
+                setIsScroll(true);  
             } else {
                 setIsScroll(false);
             }
@@ -33,37 +32,33 @@ function Navbar() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-    console.log(isScroll);
 
-    useGSAP(()=>{
+    useEffect(() => {
         gsap.from(navbar.current, {
-            y:-50,
-            delay:.5,
-            duration:.5
-        })
-        
-    })
-
-
+            y: -50,
+            delay: .5,
+            duration: .5
+        });
+    }, []);
 
     return (
         <>
-            <header className={`${isScroll ? "bg-white text-black shadow-lg shadow-black/25" : "bg-transparent text-white"} fixed top-0 left-0 right-0 z-50 transition-colors duration-300 `}>
+            <header className={`${isScroll ? "bg-white text-black shadow-lg shadow-black/25" : "bg-transparent text-white"} fixed top-0 left-0 right-0 z-50 transition-colors duration-300`}>
                 <nav ref={navbar} className='container mx-auto flex justify-between font-poppin py-5 px-5'>
                     <div>
-                        <NavLink to={"/"}><h1 className='text-bold'>MS46</h1></NavLink>
+                        <NavLink to={"/"}><h1 className='font-bold'>MS46</h1></NavLink>
                     </div>
 
                     {/* Mobile Menu */}
-                    <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-40 transition-all duration-5+00 ease-in-out ${isMenu ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'} sm:hidden`}>
-                        <ul className='flex absolute gap-10 flex-col top-24 left-[45%] transition-all duration-300 ease-in-out'>
+                    <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-40 transition-all duration-500 ease-in-out ${isMenu ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-100%]'} sm:hidden`}>
+                        <ul className='flex absolute gap-10 flex-col top-24 left-[45%] transform transition-all duration-300 ease-in-out'>
                             {
                                 navItems.map((item, index) => (
                                     <li key={index}>
                                         <NavLink
                                             className={({ isActive }) => isActive ? "text-red-600 font-bold border-b border-slate-600" : "hover:text-red-600"}
                                             to={item.path}
-                                            onClick={handleToggle} // To close the menu when a link is clicked
+                                            onClick={handleToggle}
                                         >
                                             {item.label}
                                         </NavLink>
@@ -73,8 +68,8 @@ function Navbar() {
                         </ul>
                     </div>
 
-                    {/* Desktop Menu (Hidden on small screens) */}
-                    <div  className='relative hidden sm:flex'>
+                    {/* Desktop Menu */}
+                    <div className='relative hidden sm:flex'>
                         <ul className='flex gap-10'>
                             {
                                 navItems.map((item, index) => (

@@ -24,6 +24,17 @@ function Testimonial() {
           pagination={{
             clickable: true,
           }}
+          breakpoints={{
+            300: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
           modules={[Pagination]}
           className="mySwiper"
         >
@@ -38,29 +49,27 @@ function Testimonial() {
                 }}
                 className='h-[450px] rounded-lg'
               >
-                <div className='h-full flex items-end'> {/* Added flex and items-end to move content to the bottom */}
-                  <div className='bg-white w-full mx-5 mb-5 rounded-lg relative p-5'> {/* mb-5 moves the card lower */}
+                <div className='h-full flex items-end'>
+                  <div className='bg-white w-full mx-5 mb-5 rounded-lg relative p-5'>
                     <img
                       className='absolute left-[45%] -top-5 w-16 h-16 rounded-full border-4 border-white'
-                      src={item.image || "/images/revier.png"}  // Dynamically use the item image or fallback to default
+                      src={item.image || "/images/revier.png"}
                       alt={item.name}
                     />
                     <div className='text-center mt-10'>
                       <h3>{item.name}</h3>
                       <p className='text-sm text-black'>{item.postion}</p>
                       <p className='text-sm py-2 text-black'>{item.commemt}</p>
-                      <p className='flex justify-center'>{
-                        Array.from({length:totalStar}, (_, index)=>{
+                      <p className='flex justify-center'>
+                        {Array.from({ length: totalStar }, (_, index) => {
                           const startIndex = index;
-                          return startIndex<item.rating?(
+                          return startIndex < item.rating ? (
                             <FaStar key={index} className='text-yellow-600' />
-                        ) : (
+                          ) : (
                             <IoMdStarOutline key={index} />
-                        );
-                        })
-
-                        
-                        }</p>
+                          );
+                        })}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -70,6 +79,7 @@ function Testimonial() {
         </Swiper>
       </div>
     </div>
+
   );
 }
 

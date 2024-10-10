@@ -22,10 +22,10 @@ function WhyChooseCart({title,description }) {
     return (
         <>
 
-            <div ref={cardRef} className='col-span-3 '>
+            <div ref={cardRef} className='col-span-12 md:text-start text-center md:col-span-3 '>
                 <h3 className='text-3xl font-bold font-poppin'>{title}</h3>
                 <p className='mt-3'>{description}</p>
-                <button className='flex items-center justify-center text-red-600'>More Info  </button>
+                <button className='flex mx-auto items-center mt-5 md:mt-0 justify-center text-red-600'>More Info  </button>
             </div>
         </>
     )
