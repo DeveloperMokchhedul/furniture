@@ -74,7 +74,7 @@ function BestSelling() {
                     {
                         Array.from(new Set(product.map(item => item.category)))
                             .map((category, index) => (
-                                <button onClick={() => handleCategory(category)} className='bg-black text-white px-3 py-1 rounded-md' key={index}>{category}</button>
+                                <button onClick={() => handleCategory(category)} className='bg-black text-[12px] text-white px-3 py-1 rounded-md' key={index}>{category}</button>
                             ))
                     }
                 </div>
@@ -83,11 +83,11 @@ function BestSelling() {
                     {
                         filterData && filterData.slice(0, isVisible).map((item) => (
                             <div key={item.id} className='col-span-3 bg-slate-600 p-5'>
-                                <img className='w-[80px] h-[80px] mx-auto' src={item.image} alt="" />
-                                <div className='bg-white p-5 rounded-lg mt-3'>
+                                <img className='w-[130px] h-[130px]  rounded-full mx-auto' src={item.image} alt="" />
+                                <div className='bg-white p-5 rounded-lg mt-3 text-center'>
                                     <p>{item.category}</p>
                                     <h3 className='font-bold'>{item.title.slice(0, 15)}</h3>
-                                    <div className='flex'>
+                                    <div className='flex justify-center mt-2'>
                                         {
                                             Array.from({ length: totalStar }, (_, index) => {
                                                 const startIndex = index;
