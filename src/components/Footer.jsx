@@ -44,7 +44,7 @@ function Footer() {
 
                 </div>
 
-                <div className=" mt-14 h-10 bg-slate-400 px-5 ">
+                <div className=" mt-14 h-10 bg-slate-400 px-5  text-10px md:text-16px">
                     <div className="flex md:px-5 justify-between items-center pt-2">
                         <div>
                             <p>Copyright @ 2024</p>
